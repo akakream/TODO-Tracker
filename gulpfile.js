@@ -32,15 +32,15 @@ function serve() {
   browserSync.init({
     server: "./src"
   });
-  // recompile scss on filechange
-  watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], function () { css(); });
+  // recompile scss and update css on filechange
+  watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], css);
   // update js on filechange
-  watch(['src/js/*.js'], function () { js(); });
+  watch(['src/js/*.js'], js);
   // reload on filechange
-  watch(['src/*.html', 'src/js/*.js', 'src/scss/*.scss']).on('change', browserSync.reload);
+  watch(['src/*.html']).on('change', browserSync.reload);
 }
 
 exports.js = js;
 exports.css = css;
 exports.serve = serve;
-exports.default = series(serve, css, js);
+exports.default = series(css, js, serve);
