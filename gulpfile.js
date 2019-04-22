@@ -2,15 +2,17 @@ const { src, dest, series, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
 const minifyCSS = require('gulp-csso');
-const concat = require('gulp-concat');
+const concatCss = require('gulp-concat-css');
 
-// Compile SASS & auto-inject into browsers
+// Compile SASS, minify and concat into one file
 function css() {
-  return src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
+  return src(['node_modules/bootstrap/scss/bootstrap.scss', 
+              'src/scss/*.scss'],
+              { sourcemaps: true })             // get scss files
     .pipe(sass())                               // compile to css
+    .pipe(concatCss('app.min.css'))             // concat into single file
     .pipe(minifyCSS())                          // minify css
     .pipe(dest("src/css"))                      // put files into to src/css
-    .pipe(concat('app.min.css'))                // concat into single file
     .pipe(browserSync.stream());                // return transformed stream
 }
 
@@ -19,7 +21,7 @@ function js() {
   return src(['node_modules/jquery/dist/jquery.min.js', 
               'node_modules/bootstrap/dist/js/bootstrap.min.js', 
               'node_modules/popper.js/dist/umd/popper.min.js',
-              'src/js/app.js'], 
+              'src/js/app.js'],
               { sourcemaps: true })              // load required js files
     .pipe(dest('src/js', { sourcemaps: true }))  // put files into src/js
     .pipe(browserSync.stream());                 // return transformed stream
@@ -30,10 +32,12 @@ function serve() {
   browserSync.init({
     server: "./src"
   });
+  // recompile scss on filechange
+  watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], function () { css(); });
+  // update js on filechange
+  watch(['src/js/*.js'], function () { js(); });
   // reload on filechange
-  watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], css());
-  watch(['src/js/*.js'], js());
-  watch(['src/*.html']).on('change', browserSync.reload);
+  watch(['src/*.html', 'src/js/*.js', 'src/scss/*.scss']).on('change', browserSync.reload);
 }
 
 exports.js = js;
