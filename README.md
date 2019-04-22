@@ -4,10 +4,16 @@ Do not ever forget what to do
 
 ### Build process
 
+Install gulp with npm:
+
+```
+$ npm install gulp-cli -g
+```
+
 Install modules with npm:
 
 ```
-$ npm install --save
+$ npm install
 ```
 
 Start site with:
