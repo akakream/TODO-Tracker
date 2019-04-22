@@ -1,11 +1,17 @@
 // Variable Overrides 
 
 // Bootstrap Sass Imports
-@import "node_modules/bootstrap/scss/bootstrap";
+@import 'node_modules/bootstrap/scss/_functions';
+@import 'node_modules/bootstrap/scss/_variables';
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints';
 
 // Header
-.page-title {
-  @at-root #{&}__sub {
-    font-size: 0.6em;
+h1 {
+  > small {
+    display: inline-block;
+  }
+
+  @include media-breakpoint-down(xs) {
+    text-align: center;
   }
 }
