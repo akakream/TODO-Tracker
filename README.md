@@ -28,6 +28,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Ahmet Kerem Aksoy** - *Initial work* - [akakream](https://github.com/akakream)
+* **Justin Hauser** - [just-h](https://github.com/just-h)
 
 See also the list of [contributors](https://github.com/akakream/TODO-Tracker/contributors) who participated in this project.
 
