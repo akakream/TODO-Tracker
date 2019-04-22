@@ -16,12 +16,12 @@ function css() {
 
 // Move required js into src/js
 function js() {
-  return src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 
-              'node_modules/jquery/dist/jquery.min.js', 
-              'node_modules/popper.js/dist/umd/popper.min.js'], 
+  return src(['node_modules/jquery/dist/jquery.min.js', 
+              'node_modules/bootstrap/dist/js/bootstrap.min.js', 
+              'node_modules/popper.js/dist/umd/popper.min.js',
+              'src/js/app.js'], 
               { sourcemaps: true })              // load required js files
     .pipe(dest('src/js', { sourcemaps: true }))  // put files into src/js
-    .pipe(concat('app.min.js'))                  // concat all js files into a single file
     .pipe(browserSync.stream());                 // return transformed stream
 }
 
