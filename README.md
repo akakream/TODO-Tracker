@@ -1,16 +1,21 @@
-# Project Title
-
-TODO-Tracker  
+# TODO-Tracker
 
 Do not ever forget what to do
 
-### Prerequisites
+### Build process
 
 Install modules with npm:
 
 ```
 $ npm install --save
 ```
+
+Start site with:
+
+```
+$ gulp
+```
+Your working dev copy will now be accesible under [http://localhost:3000/](http://localhost:3000/) and automatically update as you change local files.
 
 ## Built With
 
