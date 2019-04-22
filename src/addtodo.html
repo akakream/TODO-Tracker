@@ -57,56 +57,35 @@
     
         <hr>
     
-        <div class="container">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">TODO</th>
-                    <th scope="col">Deadline</th>
-                    <th scope="col">Progress</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Make a todo list</td>
-                    <td>26 April 2019</td>
-                    <td>40%</td>
-                    <td><button type="button" class="btn btn-dark">Edit</button></td>
-                    <td><button type="button" class="btn btn-dark">Delete</button></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Meet 50 Cent</td>
-                    <td>15 June 2019</td>
-                    <td>0%</td>
-                    <td><button type="button" class="btn btn-dark">Edit</button></td>
-                    <td><button type="button" class="btn btn-dark">Delete</button></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Kill 50 Cent</td>
-                    <td>16 June 2019</td>
-                    <td>0%</td>
-                    <td><button type="button" class="btn btn-dark">Edit</button></td>
-                    <td><button type="button" class="btn btn-dark">Delete</button></td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Be 50 Cent</td>
-                    <td>17 June 2019</td>
-                    <td>0%</td>
-                    <td><button type="button" class="btn btn-dark">Edit</button></td>
-                    <td><button type="button" class="btn btn-dark">Delete</button></td>
-                    </tr>
-                </tbody>
-                </table>
-                
+        <div class="input-group input-group-sm mb-3" style="margin:5px; width: 700px">
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">TODO</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
         </div>
-    
+
+        <div class="input-group input-group-sm mb-3" style="margin:5px; width: 300px">
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Deadline</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+
+        <div class="input-group input-group-sm mb-3" style="margin:5px; width: 200px">
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Progress</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>    
+
+        <button type="button" class="btn btn-dark" style="margin:5px;">ADD</button>
+        
         <div class="container" style="position:fixed; bottom:0%">
             <p>Copyright © 2019 Ahmet Kerem Aksoy&Justin Lennart Hauser All rights reserved.</p>
         </div>
