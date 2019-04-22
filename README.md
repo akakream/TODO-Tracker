@@ -15,11 +15,13 @@ Start site with:
 ```
 $ gulp
 ```
-Your working dev copy will now be accesible under [http://localhost:3000/](http://localhost:3000/) and automatically update as you change local files.
+Your working dev copy will now be accessible under [http://localhost:3000/](http://localhost:3000/) and automatically update as you change local files.
 
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - front-end component library
+* [npm](https://www.npmjs.com/) - JavaScript development tools
+* [gulp](https://gulpjs.com/) - toolkit for automating tasks in the development workflow
 
 ## Versioning
 
