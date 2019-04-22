@@ -3,3 +3,9 @@
 // Bootstrap Sass Imports
 @import "node_modules/bootstrap/scss/bootstrap";
 
+// Header
+.page-title {
+  @at-root #{&}__sub {
+    font-size: 0.6em;
+  }
+}
