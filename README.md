@@ -1,8 +1,10 @@
 # TODO-Tracker
 
-Do not ever forget what to do
+*Do not ever forget what to do*
 
-### Build process
+A static website that allows you to keep track of your TODOs.
+
+### Build process for development
 
 Install gulp with npm:
 
@@ -16,7 +18,7 @@ Install modules with npm:
 $ npm install
 ```
 
-Start site with:
+Start development site with:
 
 ```
 $ gulp
