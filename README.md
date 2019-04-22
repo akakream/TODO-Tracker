@@ -1,6 +1,8 @@
 # Project Title
 
-TODO-Tracker ~Do not ever forget what to do~
+TODO-Tracker  
+
+Do not ever forget what to do
 
 ### Prerequisites
 
