@@ -1,25 +1,27 @@
-# Project Title
-
-TODO-Tracker  
+# TODO-Tracker
 
 Do not ever forget what to do
 
-### Prerequisites
+### Build process
 
-Install jquery and bootstrap
-
-```
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-```
+Install modules with npm:
 
 ```
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+$ npm install --save
 ```
+
+Start site with:
+
+```
+$ gulp
+```
+Your working dev copy will now be accessible under [http://localhost:3000/](http://localhost:3000/) and automatically update as you change local files.
 
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - front-end component library
+* [npm](https://www.npmjs.com/) - JavaScript development tools
+* [gulp](https://gulpjs.com/) - toolkit for automating tasks in the development workflow
 
 ## Versioning
 
@@ -28,11 +30,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Ahmet Kerem Aksoy** - *Initial work* - [akakream](https://github.com/akakream)
-<<<<<<< HEAD
 * **Justin Lennart Hauser** - *Initial work* - [just-h](https://github.com/just-h)
-=======
-* **Justin Hauser** - [just-h](https://github.com/just-h)
->>>>>>> 212301152f17a6c31aba7745e0f0767c98e2e501
 
 See also the list of [contributors](https://github.com/akakream/TODO-Tracker/contributors) who participated in this project.
 
