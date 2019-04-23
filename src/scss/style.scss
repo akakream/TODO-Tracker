@@ -1,10 +1,15 @@
 @import '_master';
 
-// Layout
+// layout
 body {
   padding-bottom: 2rem; // accomodate for copyright notice
   @media screen and (max-width: 423px) {
-    padding-bottom: 3.2rem; // accomodate for copyright notice
+    padding-bottom: 3.2rem;
+  }
+}
+@media (max-width: 299px) {
+  html {
+    font-size: 5vw;
   }
 }
 
