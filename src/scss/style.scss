@@ -1,5 +1,10 @@
 @import '_master';
 
+// Layout
+body {
+  padding-bottom: 2rem; // accomodate for copyright notice
+}
+
 // header
 .page-title {
   width: 100%;
