@@ -12,20 +12,29 @@ $theme-colors: (
 // header
 .page-title {
   width: 100%;
-  text-align: left;
   > .page-title__sub {
     display: inline-block;
     font-size: .5em;
     opacity: 0.6;
     color: $dark;
-    text-align: right;
   }
-
   @include media-breakpoint-down(xs) {
     text-align: center;
   }
 }
+// footer
+.footer {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
 
+  p {
+    opacity: .5;
+    margin-bottom: 0;
+    padding: .5rem 0;
+    font-size: 0.75rem;
+  }
+}
 
 // todo elements
 .table {
