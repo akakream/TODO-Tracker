@@ -1,13 +1,4 @@
-// Variable Overrides 
-$theme-colors: (
-  "primary": #0074d9,
-  "danger": #ff4136
-);
-
-// Bootstrap Sass Imports
-@import 'node_modules/bootstrap/scss/_functions';
-@import 'node_modules/bootstrap/scss/_variables';
-@import 'node_modules/bootstrap/scss/mixins/_breakpoints';
+@import '_master';
 
 // header
 .page-title {
@@ -126,10 +117,5 @@ $theme-colors: (
     .todo__delete {
       padding-left: 1rem;
     }
-
-    // @at-root #{&}__edit {
-    //   display: block;
-    //   width: 100%
-    // }
   }
 }
