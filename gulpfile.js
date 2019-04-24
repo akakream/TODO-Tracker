@@ -12,7 +12,7 @@ const concat = require('gulp-concat');
 const minfiyHTML = require('gulp-htmlmin');
 
 
-// Compile SASS, minify and concat into one file
+// handle css generation
 function css() {
   return src('src/scss/*.scss')
     .pipe(sass({outputStyle: 'expanded'}))  // compile custom SCSS
@@ -27,14 +27,14 @@ function css() {
 }
 
 
-// Move required js into src/js and minify custom JS
+// handle js deployment
 function js() {
   // load js files
   var jquery = src('node_modules/jquery/dist/jquery.min.js');
   var popper = src('node_modules/popper.js/dist/umd/popper.min.js');
   var bootstrap = src('node_modules/bootstrap/dist/js/bootstrap.min.js');
   var app = src('src/js/*.js')
-    .pipe(minifyJS());                     // minify js
+    .pipe(minifyJS());                      // minify js
   
   return merge(jquery, popper, bootstrap, app)
     .pipe(concat('app.min.js'))             // concat all js files
@@ -42,7 +42,7 @@ function js() {
     .pipe(browserSync.stream());            // return transformed stream
 }
 
-// minify HTML and put into build folder
+// handle html generation
 function html() {
   return src('src/*.html')                     
     .pipe(minfiyHTML())                     // minify html
@@ -50,7 +50,7 @@ function html() {
     .pipe(browserSync.stream());            // return transformed stream
 }
 
-// minify HTML and put into build folder
+// handle assets
 function assets() {
   return src('src/assets/**')                     
     .pipe(dest('build/assets'))             // put files into build
@@ -62,7 +62,7 @@ function serve() {
   browserSync.init({
     server: "./build"
   });                                       // serve build
-
+  // watch for changes
   watch('src/*.html', html);                // recompile scss on filechange
   watch('src/scss/*.scss', css);            // update js on filechange
   watch('src/js/*.js', js);                 // update html on filechange
