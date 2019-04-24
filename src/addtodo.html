@@ -54,34 +54,37 @@
   </div>
 
   <div class="container">
-
-    <div class="input-group input-group-sm mb-3" style="margin:5px; width: 700px">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">TODO</span>
-        </div>
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    <div class="row">
+      <div class="col-lg-6">
+        <form class="form form--add">
+          <div class="input-group input-group-sm mb-3 form__name">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" for="inputGroupTODO">TODO</span>
+              </div>
+              <textarea class="form-control" aria-label="TODO" aria-describedby="inputGroupTODO"></textarea>
+            </div>
+          </div>
+          <div class="input-group input-group-sm mb-3 form__deadline">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupDeadline">Deadline</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Deadline" aria-describedby="inputGroupDeadline">
+            </div>
+          </div>
+          <div class="input-group input-group-sm mb-3 form__deadline">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupProgress">Progress</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Progress" aria-describedby="inputGroupProgress">
+            </div>
+          </div>
+          <button type="button" class="btn btn-dark">Save</button>
+        </form>
       </div>
     </div>
-
-    <div class="input-group input-group-sm mb-3" style="margin:5px; width: 300px">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">Deadline</span>
-        </div>
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-      </div>
-    </div>
-
-    <div class="input-group input-group-sm mb-3" style="margin:5px; width: 200px">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">Progress</span>
-        </div>
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-      </div>
-    </div>
-    <button type="button" class="btn btn-dark" style="margin:5px;">ADD</button>
   </div>
 
   <div class="container-fluid footer">
