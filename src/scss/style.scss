@@ -137,3 +137,13 @@ body {
     }
   }
 }
+
+// Form
+.form {
+  .input-group-prepend .input-group-text {
+    min-width: 5.5rem;
+  }
+  @at-root #{&}__name textarea  {
+    min-height: 5.5rem;
+  }
+}

@@ -11,7 +11,7 @@
   <link rel="shortcut icon" type="image/png" href="assets/favicon/c25c73007352a435b010073727badfd1.ico/favicon.ico">
 </head>
 
-<body>
+<body class="edit s">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html">TODO-Tracker</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" for="inputGroupTODO">TODO</span>
               </div>
-              <textarea class="form-control" aria-label="TODO" aria-describedby="inputGroupTODO">Make a todo list</textarea>
+              <textarea class="form-control" aria-label="TODO" aria-describedby="inputGroupTODO" id="name" maxlength="160"></textarea>
             </div>
           </div>
           <div class="input-group input-group-sm mb-3 form__deadline">
@@ -68,15 +68,15 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupDeadline">Deadline</span>
               </div>
-              <input type="text" class="form-control" aria-label="Deadline" aria-describedby="inputGroupDeadline" value="26 April 2019">
+              <input type="text" class="form-control" aria-label="Deadline" aria-describedby="inputGroupDeadline" id="date">
             </div>
           </div>
-          <div class="input-group input-group-sm mb-3 form__deadline">
+          <div class="input-group input-group-sm mb-3 form__progress">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupProgress">Progress</span>
               </div>
-              <input type="text" class="form-control" aria-label="Progress" aria-describedby="inputGroupProgress" value="100%">
+              <input type="text" class="form-control" aria-label="Progress" aria-describedby="inputGroupProgress" id="progress">
             </div>
           </div>
           <button type="button" class="btn btn-dark">Save</button>
