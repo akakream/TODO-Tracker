@@ -1,18 +1,25 @@
 # TODO-Tracker
 
-*Do not ever forget what to do*
+*Never forget what to do!*
 
-A static website that allows you to keep track of your TODOs.
+A website that allows you to keep track of your TODOs.
+
+Also includes a live-server dev environment for prototyping and rapid development with some of the standard practices (minification etc.). 
+Check out the gulpfile.js for more details.
+
+### "Build" process for production
+
+Open build/index.html
 
 ### Build process for development
 
-Install gulp with npm:
+Install gulp with npm/yarn if you haven't done so already:
 
 ```
 $ npm install gulp-cli -g
 ```
 
-Install modules with npm:
+Install development modules:
 
 ```
 $ npm install
