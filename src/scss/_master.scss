@@ -1,10 +1,10 @@
 // Variable Overrides 
-$theme-colors: (
-  "primary": #0074d9,
-  "danger": #ff4136
-);
+// $theme-colors: (
+//   "primary": #0074d9,
+//   "danger": #ff4136
+// );
 
-// Bootstrap Sass Imports
-@import 'node_modules/bootstrap/scss/_functions';
-@import 'node_modules/bootstrap/scss/_variables';
-@import 'node_modules/bootstrap/scss/mixins/_breakpoints';
+// import required bootstrap
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";

@@ -1,4 +1,4 @@
-const { src, dest, series, watch } = require('gulp');
+const { src, dest, series, parallel, watch } = require('gulp');
 const merge = require('merge2');
 const browserSync = require('browser-sync').create();
 // CSS
@@ -6,37 +6,23 @@ const sass = require('gulp-sass');
 const minifyCSS = require('gulp-csso');
 const concatCss = require('gulp-concat-css');
 const autoprefixer = require('gulp-autoprefixer');
-// JS
-const minifyJS = require('gulp-uglify');
+// JS & HTML
+const minifyJS = require('gulp-uglify-es').default;
 const concat = require('gulp-concat');
+const minfiyHTML = require('gulp-htmlmin');
 
 
 // Compile SASS, minify and concat into one file
 function css() {
-  // bootstrap css
-  var bootstrap = src('node_modules/bootstrap/scss/bootstrap.scss')
-    .pipe(sass({outputStyle: 'expanded'}))  // compile bootstrap SCSS
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))                                     // prefix
-    .pipe(dest("src/css"));                 // put file into src/css
-
-  // custom css
-  var app = src('src/scss/*.scss')
+  return src('src/scss/*.scss')
     .pipe(sass({outputStyle: 'expanded'}))  // compile custom SCSS
+    .pipe(concatCss('app.min.css'))         // concat into single file 
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
-    }))                                     // prefix
-    .pipe(dest("src/css"))                  // put files into src/css
-    .pipe(browserSync.stream());            // return transformed stream
-  
-  // combined
-  return merge(bootstrap, app)
-    .pipe(concatCss('app.min.css'))         // concat into single file        
+    }))                                     // prefix file       
     .pipe(minifyCSS())                      // minify css
-    .pipe(dest("src/css"))                  // put file into to src/css
+    .pipe(dest("build/css"))                // put file into to build/css
     .pipe(browserSync.stream());            // return transformed stream
 }
 
@@ -45,34 +31,48 @@ function css() {
 function js() {
   // load js files
   var jquery = src('node_modules/jquery/dist/jquery.min.js');
-  var bootstrap = src('node_modules/bootstrap/dist/js/bootstrap.min.js');
   var popper = src('node_modules/popper.js/dist/umd/popper.min.js');
-  var app = src('src/js/app.js')
-    .pipe(minifyJS())
-    .pipe(concat('app.min.js'))
-    .pipe(dest('src/js/'));
+  var bootstrap = src('node_modules/bootstrap/dist/js/bootstrap.min.js');
+  var app = src('src/js/*.js')
+    .pipe(minifyJS());                     // minify js
   
-  return merge(bootstrap, jquery, popper, app)  // merge file stream
-    .pipe(dest('src/js', { sourcemaps: true })) // put files into src/js
-    .pipe(browserSync.stream());                // return transformed stream
+  return merge(jquery, popper, bootstrap, app)
+    .pipe(concat('app.min.js'))             // concat all js files
+    .pipe(dest('build/js'))                 // put files into build/js
+    .pipe(browserSync.stream());            // return transformed stream
 }
 
-// Static Server and watching for filechanges
+// minify HTML and put into build folder
+function html() {
+  return src('src/*.html')                     
+    .pipe(minfiyHTML())                     // minify html
+    .pipe(dest('build'))                    // put files into build
+    .pipe(browserSync.stream());            // return transformed stream
+}
+
+// minify HTML and put into build folder
+function assets() {
+  return src('src/assets/**')                     
+    .pipe(dest('build/assets'))             // put files into build
+    .pipe(browserSync.stream());            // return transformed stream
+}
+
+// static server and watching for filechanges
 function serve() {
   browserSync.init({
-    server: "./src"
-  });
-  // recompile scss and update css on filechange
-  watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], css);
-  // update js on filechange
-  watch('src/js/app.js', js);
-  // reload on filechange
-  watch(['src/*.html']).on('change', browserSync.reload);
+    server: "./build"
+  });                                       // serve build
+
+  watch('src/*.html', html);                // recompile scss on filechange
+  watch('src/scss/*.scss', css);            // update js on filechange
+  watch('src/js/*.js', js);                 // update html on filechange
+  watch('src/assets/*', assets);            // update assets on filechange
 }
 
-
 // exports
+exports.html = html;
 exports.js = js;
 exports.css = css;
+exports.assets = assets;
 exports.serve = serve;
-exports.default = series(css, js, serve);
+exports.default = series(parallel(html, assets, css, js), serve);
